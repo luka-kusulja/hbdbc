@@ -1,0 +1,18 @@
+{
+  "manifest_version": 2,
+  "name": "HostingBy.Design bandwidth calculator",
+  "version": "1.0",
+  
+  "description": "Calculates how much bandwidth per day is left on your server hosted on HostingByDesign provider.",
+  
+  "icons": {
+    "48": "icons/icon.png"
+  },
+  
+  "content_scripts": [
+    {
+      "matches": ["https://my.hostingby.design/clientarea.php?action=productdetails&id=*"],
+      "js": ["hbdbc.js"]
+    }
+  ]
+}
