@@ -14,7 +14,7 @@ const totalBandwidthLeft = bandwidthLimit - (bandwidthLimit * (bandwidthUsed / 1
 
 const bandLeft = Object.assign(document.createElement('li'), { innerHTML: `
     <span class="list-info-title">Bandwidth (Datatraffic) left</span>
-    <span class="list-info-text">${totalBandwidthLeft} TB</span>
+    <span class="list-info-text">${totalBandwidthLeft.toFixed(2)} TB</span>
 ` });
 
 const bandLeftPerDay = Object.assign(document.createElement('li'), { innerHTML: `
