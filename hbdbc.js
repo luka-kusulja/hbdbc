@@ -1,5 +1,5 @@
 let dueDateDom = document.querySelector(".list-info-v > li:nth-child(5) > span:nth-child(2)");
-const daysUntil = Math.ceil((new Date(dueDateDom.innerHTML.split('/').reverse().join('-')) - new Date()) / (1000 * 60 * 60 * 24)) + 1;
+const daysUntil = Math.ceil((new Date(dueDateDom.innerHTML.split('/').reverse().join('-')) - new Date()) / (1000 * 60 * 60 * 24));
 
 const daysUntilDom = Object.assign(document.createElement('span'), { innerHTML: ` (${daysUntil} days)` });
 dueDateDom.append(daysUntilDom);
@@ -17,9 +17,10 @@ const bandLeft = Object.assign(document.createElement('li'), { innerHTML: `
     <span class="list-info-text">${totalBandwidthLeft.toFixed(2)} TB</span>
 ` });
 
+let bandwithLeftPerDay = daysUntil == 0 ? totalBandwidthLeft : (totalBandwidthLeft / daysUntil);
 const bandLeftPerDay = Object.assign(document.createElement('li'), { innerHTML: `
     <span class="list-info-title">Bandwidth (Datatraffic) left per day</span>
-    <span class="list-info-text">${(totalBandwidthLeft / daysUntil).toFixed(2)} TB</span>
+    <span class="list-info-text">${bandwithLeftPerDay.toFixed(2)} TB</span>
 ` });
 
 document.querySelector("#bandwidth > ul:nth-child(1) > ul:nth-child(3)").append(bandLeft, bandLeftPerDay);
